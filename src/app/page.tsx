@@ -1,66 +1,142 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Icon from "@/components/atoms/icon";
+import styles from "./home.module.scss";
+import NumberFlow from '@number-flow/react'
+
+import Tooltip from "@/components/atoms/tooltip/tooltip";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.wraper}>
+      <div className={styles.container}>
+        <nav className={styles.navbar}>
+          <img src="/Logo.svg" draggable="false" alt="Logo" style={{ userSelect: 'none', pointerEvents: 'none' }} />
+        </nav>
+
+
+        <div className={styles.content}>
+
+
+          <div className={styles.topstatus}>
+
+            <Tooltip direction="bottom" content="see more">
+
+              <div className={styles.card}>
+                <p className={styles.label}>
+                  Scholar
+                </p>
+
+                <div className={styles.subwraper}>
+
+                  <div className={styles.metrics}>
+                    <h4 className={styles.sublabel}>
+                      Last 7 days
+                    </h4>
+
+                    <div className={styles.status}>
+                      <Icon name="uparrow" fill="#0C9E00" size={16} />
+                      <span className={styles.statusdata}>
+                        <NumberFlow value={0.3} />%
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.value}>
+                    <span className={styles.activetotal}>
+                      1,200
+                    </span>
+                    <h4 className={styles.subvalue}>
+                      /
+                    </h4>
+                    <span className={styles.totalvalue}>1,500</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </Tooltip>
+
+
+            <Tooltip direction="bottom" content="see more">
+
+
+              <div className={styles.card}>
+                <p className={styles.label}>
+                  Educator
+                </p>
+
+                <div className={styles.subwraper}>
+
+                  <div className={styles.metrics}>
+                    <h4 className={styles.sublabel}>
+                      Last 7 days
+                    </h4>
+
+                    <div className={styles.status}>
+                      <Icon name="uparrow" fill="#0C9E00" size={16} />
+                      <span className={styles.statusdata}>
+                        0.3%
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.value}>
+                    <span className={styles.activetotal}>
+                      1,200
+                    </span>
+                    <h4 className={styles.subvalue}>
+                      /
+                    </h4>
+                    <span className={styles.totalvalue}>1,500</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </Tooltip>
+
+
+            <Tooltip direction="bottom" content="see more">
+
+
+              <div className={styles.card}>
+                <p className={styles.label}>
+                  MANAGEMENT
+                </p>
+
+                <div className={styles.subwraper}>
+
+                  <div className={styles.metrics}>
+                    <h4 className={styles.sublabel}>
+                      Last 7 days
+                    </h4>
+
+                    <div className={styles.status}>
+                      <Icon name="downarrow" fill="#9E0000" size={16} />
+                      <span className={styles.statusdatadown}>
+                        0.3%
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className={styles.value}>
+                    <span className={styles.activetotal}>
+                      120
+                    </span>
+                    <h4 className={styles.subvalue}>
+                      /
+                    </h4>
+                    <span className={styles.totalvalue}>150</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </Tooltip>
+
+          </div>
+
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }

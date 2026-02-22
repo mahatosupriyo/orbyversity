@@ -8,14 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@number-flow/react": "^0.5.12",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "sass": "^1.97.3",
     "typescript": "^5"
   }
 }

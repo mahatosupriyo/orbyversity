@@ -1,0 +1,140 @@
+.wraper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        max-width: 200rem;
+        min-height: 100dvh;
+
+        // background-color: hsl(0, 0%, 96%);
+
+        .navbar {
+            position: relative;
+            // top: 0;
+            // left: 0;
+            // right: 0;
+
+            width: 100%;
+            padding: 1rem;
+
+            background-color: hsl(0, 0%, 100%);
+        }
+
+        .content {
+            padding: 1rem;
+            width: 100%;
+
+            .topstatus {
+                display: flex;
+                flex-direction: row;
+                gap: 0.4rem;
+                width: 100%;
+
+                .card {
+                    user-select: none;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+
+                    background-color: hsl(0, 0%, 94%);
+                    border-radius: 1rem;
+
+                    gap: 2rem;
+                    min-width: 30rem;
+                    width: 100%;
+                    padding: 1.6rem 1.4rem 1.2rem 1.4rem;
+
+                    transition: 0.2s ease-in-out;
+
+                    &:hover {
+                        background-color: hsl(0, 0%, 90%);
+                    }
+
+                    .label {
+                        color: hsl(0, 0%, 10%);
+                        font-weight: 500;
+                        font-size: 0.8rem;
+                        text-transform: uppercase;
+                        font-family: "JetBrains Mono", monospace;
+
+                    }
+
+                    .subwraper {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.2rem;
+
+                        .metrics {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.4rem;
+
+                            .sublabel {
+                                color: hsl(0, 0%, 44%);
+                                font-family: 'Archivo';
+                                font-size: 0.8rem;
+                                font-weight: 460;
+                            }
+
+                            .status {
+                                display: inline-flex;
+                                flex-direction: row;
+                                align-items: center;
+                                font-size: 0.8rem;
+                                font-weight: 500;
+
+                                .statusdata {
+                                    line-height: 100%;
+                                    color: hsl(115, 100%, 31%);
+                                }
+
+                                .statusdatadown {
+                                    line-height: 100%;
+                                    color: #9E0000;
+                                }
+                            }
+                        }
+
+                        .value {
+                            display: inline-flex;
+                            align-items: baseline;
+
+                            gap: 0.26rem;
+
+                            .activetotal {
+                                font-size: 2.56rem;
+                                font-weight: 500;
+                                letter-spacing: -0.016rem;
+                                font-family: "JetBrains Mono", monospace;
+                            }
+
+                            .subvalue {
+                                color: #6F6F6F;
+                                font-weight: 500;
+                                font-family: 'Archivo';
+                                font-size: 0.8rem;
+                            }
+
+                            .totalvalue {
+                                font-family: "JetBrains Mono", monospace;
+                                color: #6F6F6F;
+                                font-weight: 500;
+                                font-size: 0.8rem;
+                                letter-spacing: -0.016rem;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
