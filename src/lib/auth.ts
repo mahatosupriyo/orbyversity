@@ -1,41 +1,20 @@
 import { betterAuth, APIError } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { eq } from "drizzle-orm";
+import { eq, or } from "drizzle-orm"; // 🚨 Import 'or' for multiple condition checks
 
 import { db } from "../db/client";
 import * as schema from "../db/schema/auth.schema";
 
-/**
- * Main Better Auth configuration
- *
- * This handles:
- * - Database connection
- * - Email/password authentication
- * - Google OAuth login
- * - Custom authorization rules
- */
 export const auth = betterAuth({
-  /**
-   * Connect Better Auth with Drizzle ORM
-   * using PostgreSQL as the database provider.
-   */
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: schema,
   }),
 
-  /**
-   * Enable traditional email/password authentication.
-   */
   emailAndPassword: {
     enabled: true,
   },
 
-  /**
-   * Configure social login providers.
-   *
-   * Here we are enabling Google OAuth.
-   */
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -43,81 +22,102 @@ export const auth = betterAuth({
     },
   },
 
-  /**
-   * Database hooks allow interception of auth events
-   * before data is written into the database.
-   */
+  // 🚨 CRITICAL: Tell Better Auth about your custom columns so session.user.role works!
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: true,
+        defaultValue: "student",
+      },
+      isActive: {
+        type: "boolean",
+        required: true,
+        defaultValue: true,
+      },
+      accountId: {
+        type: "string",
+        required: true,
+        defaultValue: "UNKNOWN",
+      },
+      enrollmentNumber: {
+        type: "string",
+        required: true,
+        defaultValue: "UNKNOWN",
+      }
+    },
+  },
+
   databaseHooks: {
-    /**
-     * USER HOOKS
-     * ---------------------------------------------------
-     * Runs during user creation/signup.
-     */
     user: {
       create: {
-        /**
-         * Runs BEFORE a new user is created.
-         *
-         * Current behavior:
-         * - Completely blocks all new registrations.
-         * - Useful for invite-only systems or admin-created users.
-         *
-         * Throwing APIError stops the signup flow instantly.
-         */
         before: async (user) => {
-          // Abort signup process
+          // Normalize the incoming email for production-safe database matching
+          const incomingEmail = user.email.toLowerCase();
 
+          /**
+           * PRODUCTION-FRIENDLY CHECK:
+           * We only ask the DB for the 'id' and 'accountId' to keep the payload tiny.
+           * We check if the email exists as either a primary or secondary parent email.
+           */
+          const linkedStudent = await db
+            .select({
+              id: schema.user.id,
+              accountId: schema.user.accountId,
+            })
+            .from(schema.user)
+            .where(
+              or(
+                eq(schema.user.primaryParentEmail, incomingEmail),
+                eq(schema.user.secondaryParentEmail, incomingEmail)
+              )
+            )
+            .limit(1); // Fast bailout
+
+          // 1. If no student has this parent's email attached, block the login.
+          if (linkedStudent.length === 0) {
+            console.log("🚨 BLOCKED OAUTH EMAIL:", incomingEmail);
+            throw new APIError("UNAUTHORIZED", {
+              message: "Your email is not registered. Please contact the administrator.",
+            });
+          }
+
+          // 2. If we reach here, the parent IS authorized! 
+          // We mutate the user object before Better Auth saves it to the database.
           
-          // Log the exact email Better Auth is receiving
-          console.log("🚨 BLOCKED OAUTH EMAIL:", user.email);
+          // Force the role to parent so they get routed to the parent dashboard
+          user.role = "parent";
+          
+          // Inherit the school's account ID from their child
+          user.accountId = linkedStudent[0].accountId; 
+          
+          // Generate a unique pseudo-enrollment number for the parent to satisfy DB constraints
+          const uniqueString = Date.now().toString().slice(-6);
+          const randomNum = Math.floor(Math.random() * 1000);
+          user.enrollmentNumber = `PRNT-${uniqueString}-${randomNum}`;
 
-          throw new APIError("UNAUTHORIZED", {
-            message:
-              "Your email is not registered. Please contact the administrator.",
-          });
+          // Return the modified data to proceed with account creation!
+          return { data: user };
         },
       },
     },
 
-    /**
-     * SESSION HOOKS
-     * ---------------------------------------------------
-     * Runs during login/session creation.
-     */
     session: {
       create: {
-        /**
-         * Runs BEFORE a session is created.
-         *
-         * Purpose:
-         * - Prevent deactivated users from logging in.
-         */
         before: async (session) => {
-          /**
-           * Find the user associated with the session.
-           *
-           * session.userId -> ID of the user attempting login
-           */
+          // Production optimization: Only select the isActive flag
           const existingUser = await db
-            .select()
+            .select({ isActive: schema.user.isActive })
             .from(schema.user)
             .where(eq(schema.user.id, session.userId))
             .limit(1);
 
-          /**
-           * If user exists AND is marked inactive,
-           * block session creation.
-           */
           if (existingUser.length > 0 && existingUser[0].isActive === false) {
             throw new APIError("UNAUTHORIZED", {
-              message:
-                "Your account has been deactivated. Please contact administration.",
+              message: "Your account has been deactivated. Please contact administration.",
             });
           }
 
-          /**
-           * Returning data continues the login flow normally.
-           */
           return { data: session };
         },
       },

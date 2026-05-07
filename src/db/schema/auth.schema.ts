@@ -47,7 +47,9 @@ export const user = pgTable(
     // ── Student Optional Fields ──
     fathersName: text("fathers_name"),
     mothersName: text("mothers_name"),
-    parentEmail: text("parent_email"),
+    // Replace parentEmail with these two:
+    primaryParentEmail: text("primary_parent_email"),
+    secondaryParentEmail: text("secondary_parent_email"),
     parentPhone: varchar("parent_phone", { length: 20 }),
     address: text("address"),
     aadharNumber: varchar("aadhar_number", { length: 20 }).unique(),
