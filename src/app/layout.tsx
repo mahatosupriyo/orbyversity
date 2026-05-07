@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-
-// @ts-ignore: import global styles without module declarations
-import "../styles/global.scss";
-
-import Head from "next/head";
+import "@/styles/global.scss";
 
 export const metadata: Metadata = {
   title: "Oryversity Labs v1",
