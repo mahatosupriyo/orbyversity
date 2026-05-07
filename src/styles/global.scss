@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:ital,wght@0,500;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
 
 html {
-    font-size: 62.5&;
+    font-size: 62.5%;
 }
 
 * {
@@ -11,12 +12,38 @@ html {
 }
 
 body {
-    // font-family: "Archivo", "JetBrains Mono", sans-serif;
-    // font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-style: normal;
+    font-family: 'Rethink Sans', sans-serif;
+
 }
 
-span {
-    font-family: 'JetBrains Mono', monospace;
+button,
+span,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rethink Sans', sans-serif;
+}
+
+button{
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img{
+    user-select: none;
+    pointer-events: none;
 }

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+
+// @ts-ignore: import global styles without module declarations
 import "../styles/global.scss";
+
 import Head from "next/head";
 
 export const metadata: Metadata = {
-  title: "ORB School",
-  description: "Created by ORB Team",
+  title: "Oryversity Labs v1",
+  description: "Labs",
 };
 
 export default function RootLayout({
@@ -17,6 +20,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700,1&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=JetBrains+Mono:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
       </head>
       <body>

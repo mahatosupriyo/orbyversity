@@ -1,0 +1,30 @@
+.avatarbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+
+    height: 4rem;
+    width: 4rem;
+
+    aspect-ratio: 1/1;
+    border-radius: 10rem;
+    overflow: hidden;
+
+    .avatarbanner {
+        height: 100%;
+        width: 100%;
+
+        aspect-ratio: 1/1;
+
+        user-select: none;
+        pointer-events: none;
+
+        object-fit: cover;
+        object-position: center;
+    }
+}

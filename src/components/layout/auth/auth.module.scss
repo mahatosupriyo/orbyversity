@@ -1,0 +1,102 @@
+.mainwraper {
+    background-color: hsl(48, 24%, 96%);
+
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100dvh;
+    width: 100%;
+
+    gap: 10rem;
+
+    padding: 4rem 4rem;
+
+    .middlewraper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 4rem;
+
+        .regulartxt {
+            font-size: 1.4rem;
+            color: hsl(0, 0%, 10%);
+            font-weight: 400;
+        }
+
+        .textwraper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1.2rem;
+
+            .bigtitle {
+                font-size: 2rem;
+                font-weight: 700;
+                color: #222;
+            }
+
+            .subheadingmedium {
+                font-size: 1.4rem;
+                font-weight: 400;
+                color: hsl(0, 0%, 20%);
+            }
+        }
+
+        .authbutton {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            gap: 1.4rem;
+            padding: 3.8rem 2rem;
+
+            border: none;
+            outline: none;
+
+            min-width: 30rem;
+
+            font-size: 1.4rem;
+
+            cursor: pointer;
+            user-select: none;
+
+            border-radius: 10rem;
+
+            font-family: JetBrains Mono;
+            background-color: #222;
+
+            &:hover {
+                background-color: hsl(0, 0%, 20%);
+            }
+
+            .googlelogo {
+                pointer-events: none;
+
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+
+    .bottomlayer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 4rem;
+
+        .footerlink {
+            font-size: 1.2rem;
+            color: hsl(0, 0%, 30%);
+            font-weight: 400;
+        }
+
+
+    }
+}

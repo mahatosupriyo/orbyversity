@@ -6,9 +6,16 @@ export type IconProps = {
     'reqcall' |
     'clock' |
     'receipt' |
+    'billing' |
     'downarrow' |
+    'backarrow' |
     'uparrow' |
+    'invoice' |
+    'search' |
     'otosmall' |
+    'clipboard' |
+    'rightarrow' |
+    'add' |
     'image' |
     'orbit' |
     'calender' |
@@ -44,6 +51,54 @@ export default function Icon({ name, size = 24, fill = 'currentColor', className
                 </svg>
             )
 
+        case 'search':
+            return (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.0294 14.7924C16.7972 13.7685 17.25 12.4996 17.25 11.1257C17.25 7.74781 14.5025 5 11.125 5C7.7475 5 5 7.74781 5 11.1257C5 14.5036 7.7475 17.2513 11.125 17.2513C12.4987 17.2513 13.7675 16.7963 14.7913 16.0306L17.5059 18.7456C17.6765 18.9162 17.8996 19.0016 18.125 19.0016C18.3503 19.0016 18.5734 18.9162 18.7441 18.7456C19.0853 18.4043 19.0853 17.8508 18.7441 17.5074L16.0294 14.7924ZM11.125 15.5012C8.71216 15.5012 6.75002 13.5388 6.75002 11.1257C6.75002 8.71258 8.71216 6.75022 11.125 6.75022C13.5378 6.75022 15.5 8.71258 15.5 11.1257C15.5 13.5388 13.5378 15.5012 11.125 15.5012Z" />
+                </svg>
+
+            )
+
+        case 'backarrow':
+            return (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8.72022 13.5052C7.80957 12.7083 7.80957 11.2917 8.72022 10.4948L15 5" stroke={fill} strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+
+            )
+
+        case 'billing':
+            return (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.5 14.75C7.91421 14.75 8.25 15.0858 8.25 15.5C8.25 15.9142 7.91421 16.25 7.5 16.25H6C5.58579 16.25 5.25 15.9142 5.25 15.5C5.25 15.0858 5.58579 14.75 6 14.75H7.5Z" />
+                    <path d="M10 12.25C10.4142 12.25 10.75 12.5858 10.75 13C10.75 13.4142 10.4142 13.75 10 13.75H6C5.58579 13.75 5.25 13.4142 5.25 13C5.25 12.5858 5.58579 12.25 6 12.25H10Z" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M18 4.25C20.0711 4.25 21.75 5.92893 21.75 8V16C21.75 18.0711 20.0711 19.75 18 19.75H6C3.92893 19.75 2.25 18.0711 2.25 16V8C2.25 5.92893 3.92893 4.25 6 4.25H18ZM3.75 16C3.75 17.2426 4.75736 18.25 6 18.25H18C19.2426 18.25 20.25 17.2426 20.25 16V10.25H3.75V16ZM6 5.75C4.75736 5.75 3.75 6.75736 3.75 8V8.75H20.25V8C20.25 6.75736 19.2426 5.75 18 5.75H6Z" />
+                </svg>
+
+            )
+
+        case 'clipboard':
+            return (
+                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 14 14" fill={fill}>
+                    <path fillRule="evenodd" clipRule="evenodd" d="M9.55859 1.23633C10.4281 1.23633 11.1338 1.94295 11.1338 2.8125V8.99707C11.1335 9.8664 10.428 10.5723 9.55859 10.5723H9.44629V10.6846C9.44596 11.5538 8.74142 12.2588 7.87207 12.2588H3.37402C2.50477 12.2587 1.79916 11.5538 1.79883 10.6846V4.49902C1.79884 3.62955 2.50458 2.92492 3.37402 2.9248H3.48633V2.8125C3.48633 1.94303 4.1911 1.23646 5.06055 1.23633H9.55859ZM3.37402 3.82422C3.00146 3.82433 2.69923 4.12644 2.69922 4.49902V10.6846C2.69955 11.0569 3.00166 11.3593 3.37402 11.3594H7.87207C8.24453 11.3594 8.54654 11.057 8.54688 10.6846V10.5723H5.06055C4.19126 10.5721 3.48659 9.86632 3.48633 8.99707V3.82422H3.37402ZM4.38574 8.99707C4.38601 9.36943 4.68815 9.67175 5.06055 9.67188H8.54688V4.49902C8.54686 4.12637 8.24473 3.82422 7.87207 3.82422H4.38574V8.99707ZM5.06055 2.1377C4.68799 2.13782 4.38574 2.43991 4.38574 2.8125V2.9248H7.87207C8.74162 2.9248 9.44628 3.62948 9.44629 4.49902V9.67188H9.55859C9.9311 9.67188 10.2331 9.36951 10.2334 8.99707V2.8125C10.2334 2.43983 9.93126 2.1377 9.55859 2.1377H5.06055Z" />
+                </svg>
+            )
+
+        case 'add':
+            return (
+                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 18 18" fill="none">
+                    <path d="M0.75 8.75H16.75" stroke={fill} strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M8.75 0.75L8.75 16.75" stroke={fill} strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+            )
+
+        case 'rightarrow':
+            return (
+                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 14 14" fill="none">
+                    <path d="M5.25 2.91683L9.11392 6.29776C9.53889 6.66961 9.53889 7.33072 9.11392 7.70257L5.25 11.0835" stroke={fill} strokeWidth="0.7" strokeLinecap="round" />
+                </svg>
+            )
+
         case 'orbit':
             return (
                 <svg xmlns="http://www.w3.org/2000/svg" height={size} viewBox="0 0 1117 365" fill={fill}>
@@ -65,17 +120,16 @@ export default function Icon({ name, size = 24, fill = 'currentColor', className
 
         case 'downarrow':
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 12 12" fill="none">
-                    <path d="M6 2.25L6 9.25" stroke={fill} strokeWidth="0.75" strokeLinecap="round" />
-                    <path d="M8.5 6.75L6.38411 9.28907C6.18421 9.52894 5.81579 9.52894 5.61589 9.28907L3.5 6.75" stroke={fill} strokeWidth="0.75" strokeLinecap="round" />
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 9L13.5052 15.2798C12.7083 16.1905 11.2917 16.1905 10.4948 15.2798L5 9" stroke={fill} strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
+
             )
 
         case 'uparrow':
             return (
-                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 12 12" fill="none">
-                    <path d="M6 9.75V2.75" stroke={fill} strokeWidth="0.75" strokeLinecap="round" />
-                    <path d="M3.5 5.25L5.61589 2.71093C5.81579 2.47106 6.18421 2.47106 6.38411 2.71093L8.5 5.25" stroke={fill} strokeWidth="0.75" strokeLinecap="round" />
+                <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 20 20" fill="none">
+                    <path d="M4.16665 12.5L8.74569 7.26681C9.40971 6.50793 10.5903 6.50793 11.2543 7.26681L15.8333 12.5" stroke={fill} strokeWidth="1.25" strokeLinecap="round" />
                 </svg>
             )
 
@@ -117,6 +171,18 @@ export default function Icon({ name, size = 24, fill = 'currentColor', className
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.25 12C8.25 12.4142 7.91421 12.75 7.5 12.75H6C5.58579 12.75 5.25 12.4142 5.25 12C5.25 11.5858 5.58579 11.25 6 11.25H7.5C7.91421 11.25 8.25 11.5858 8.25 12Z" />
                 </svg>
             )
+
+        case 'invoice':
+            return (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 14.75C15.4142 14.75 15.75 15.0858 15.75 15.5C15.75 15.9142 15.4142 16.25 15 16.25H9C8.58579 16.25 8.25 15.9142 8.25 15.5C8.25 15.0858 8.58579 14.75 9 14.75H15Z" />
+                    <path d="M15 11.25C15.4142 11.25 15.75 11.5858 15.75 12C15.75 12.4142 15.4142 12.75 15 12.75H9C8.58579 12.75 8.25 12.4142 8.25 12C8.25 11.5858 8.58579 11.25 9 11.25H15Z" />
+                    <path d="M15 7.75C15.4142 7.75 15.75 8.08579 15.75 8.5C15.75 8.91421 15.4142 9.25 15 9.25H9C8.58579 9.25 8.25 8.91421 8.25 8.5C8.25 8.08579 8.58579 7.75 9 7.75H15Z" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M15.5 2.25C18.1234 2.25 20.25 4.37665 20.25 7V17C20.25 19.6234 18.1234 21.75 15.5 21.75H8.5C5.87665 21.75 3.75 19.6234 3.75 17V7C3.75 4.37665 5.87665 2.25 8.5 2.25H15.5ZM8.5 3.75C6.70507 3.75 5.25 5.20507 5.25 7V17C5.25 18.7949 6.70507 20.25 8.5 20.25H15.5C17.2949 20.25 18.75 18.7949 18.75 17V7C18.75 5.20507 17.2949 3.75 15.5 3.75H8.5Z" />
+                </svg>
+
+            )
+
         case 'receipt':
             return (
                 <svg

@@ -1,0 +1,115 @@
+.wraper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        max-width: 200rem;
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 0.4rem;
+
+            height: 100dvh;
+            width: 100%;
+            position: relative;
+            align-items: center;
+            justify-content: space-between;
+
+            .navlogo {
+                position: absolute;
+                top: 4rem;
+                left: 4rem;
+                height: 4rem;
+            }
+
+            .maincontent {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding: 4rem;
+                height: 100%;
+                width: 100%;
+
+                .moredata {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    color: #606060;
+                }
+
+
+                .subwraper {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1rem;
+
+                    .cta {
+                        font-size: 3rem;
+                        font-weight: 700;
+                        color: #fff;
+                        // text-decoration: underline;
+                        text-align: center;
+                        line-height: 100%;
+
+                        display: flex;
+                        padding: 3.4rem 4rem;
+                        background-color: #111;
+                        border-radius: 10rem;
+                        transition: 0.2s cubic-bezier(1, 0, 0, 1);
+
+                        cursor: pointer;
+                        user-select: none;
+
+                        &:hover {
+                            background-color: hsl(0, 0%, 60%);
+                        }
+                    }
+
+                    .subhead {
+                        font-size: 1.2rem;
+                        font-weight: 500;
+                        color: #9E0000;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0.8rem 0.6rem;
+
+                        background: hsla(0, 69%, 94%, 0.8);
+                        backdrop-filter: blur(5px);
+                        border-radius: 10px;
+
+                        pointer-events: none;
+                        user-select: none;
+                    }
+
+                }
+
+
+            }
+
+            .backgroundimage {
+                display: flex;
+                height: 100dvh;
+                width: 50%;
+                pointer-events: none;
+                user-select: none;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 99999;
+
+    .navwraper {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 200rem;
+
+        background-color: hsl(48, 24%, 96%);
+
+        .toplayer {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 100%;
+            padding: 1rem 5rem;
+
+            .schoolname {
+                font-size: 1.4rem;
+                font-weight: 500;
+                color: hsl(0, 0%, 30%);
+
+                user-select: none;
+            }
+        }
+
+        .middlelayer {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+
+            width: 100%;
+            padding: 0rem 5rem 1rem 5rem;
+
+            .pagetitle {
+                font-size: 2rem;
+                font-weight: 800;
+                color: #000;
+            }
+        }
+
+        .bottomlayer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            padding: 0rem 5rem;
+            gap: 2.4rem;
+
+            // border-bottom: 0.16rem solid #ECE9DF;
+
+            .options {
+                list-style-type: none;
+                border-bottom: 0.16rem solid transparent;
+
+
+                &:nth-child(3) {
+                    color: #000;
+                    border-bottom: 0.16rem solid #000;
+
+                    .pagelink {
+                        color: #000;
+                    }
+                }
+
+                &:hover {
+                    border-bottom: 0.16rem solid hsl(48, 24%, 66%);
+                }
+
+                .pagelink {
+                    display: flex;
+                    padding: 1rem 0rem;
+
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    color: hsl(40, 2%, 45%);
+
+                    text-decoration: none;
+
+                }
+            }
+        }
+    }
+}

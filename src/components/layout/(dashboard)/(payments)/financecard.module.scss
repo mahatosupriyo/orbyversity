@@ -1,0 +1,104 @@
+.financecard {
+    background-color: hsl(48, 24%, 96%);
+
+    border-radius: 1rem;
+    padding: 2rem 1.6rem;
+    text-decoration: none;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    transition: 0.2s cubic-bezier(1, 0, 0, 1);
+
+
+    &:hover {
+        background-color: hsl(48, 24%, 94%);
+
+        .headerlayer {
+            .amount {
+                gap: 1rem;
+            }
+        }
+    }
+
+    .headerlayer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        gap: 1rem;
+
+        .header {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: hsl(0, 0%, 30%);
+        }
+
+        .amount {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #000;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            gap: 0.4rem;
+            transition: 0.2s cubic-bezier(1, 0, 0, 1);
+        }
+    }
+
+    .maindatalayer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 0.4rem;
+
+        .month {
+            font-size: 2rem;
+            font-weight: 700;
+            color: hsl(0, 0%, 0%);
+        }
+
+        .percentage {
+            display: flex;
+            flex-direction: row;
+            align-items: first baseline;
+
+
+            gap: 1rem;
+            line-height: 100%;
+
+            font-size: 10rem;
+            font-weight: 700;
+
+            color: hsl(120, 100%, 25%);
+
+            .symbol {
+                font-size: 2rem;
+                font-weight: 500;
+                line-height: 100%;
+                color: inherit;
+            }
+        }
+    }
+
+    .bottomlayer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        gap: 0.5rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+
+        color: #000;
+    }
+}

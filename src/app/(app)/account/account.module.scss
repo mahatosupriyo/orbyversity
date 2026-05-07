@@ -1,0 +1,187 @@
+.wraper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        max-width: 200rem;
+        min-height: 100dvh;
+
+        padding: 16rem 5rem 0rem 5rem;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 36rem;
+            gap: 2rem;
+            margin-bottom: 10rem;
+
+
+            .userhead {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .label {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    display: none;
+                }
+
+                .avatar {
+                    user-select: none;
+                    pointer-events: none;
+
+                    height: 20rem;
+                    width: 20rem;
+                    object-fit: cover;
+                    border-radius: 1rem;
+                }
+
+                .moredata {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.4rem;
+
+                    .username {
+                        font-size: 2.2rem;
+                        font-weight: 800;
+                        line-height: 100%;
+                    }
+                }
+
+                .buttonwraper {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.4rem;
+
+                    padding-top: 1rem;
+
+                    .primarybtn,
+                    .secondarybtn {
+                        cursor: pointer;
+                        border-radius: 1rem;
+                        border: none;
+                        background: none;
+                        font-size: 1.2rem;
+                        font-weight: 700;
+                        transition: 0.2s cubic-bezier(1, 0, 0, 1);
+                        padding: 1.2rem 0.8rem;
+                    }
+
+                    .primarybtn {
+                        color: hsl(0, 0%, 13%);
+                        background-color: hsl(0, 0%, 85%);
+
+                        &:hover {
+                            background-color: hsl(0, 0%, 80%);
+                        }
+                    }
+
+                    .secondarybtn {
+                        &:hover {
+                            background-color: hsl(0, 0%, 85%);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.notification {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1rem;
+    padding: 2rem 1.6rem;
+
+    background-color: hsl(0, 0%, 20%);
+    border-radius: 2rem;
+
+    .notificationdata {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        color: #fff;
+
+        .amount {
+            color: inherit;
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 100%;
+        }
+
+        .message {
+            line-height: 100%;
+            color: inherit;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+    }
+
+    .primarybtn {
+        cursor: pointer;
+        border-radius: 1rem;
+        border: none;
+        background: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        transition: 0.2s cubic-bezier(1, 0, 0, 1);
+        padding: 1.2rem 0.8rem;
+
+        color: hsl(0, 0%, 10%);
+        background-color: hsl(0, 0%, 100%);
+
+        &:hover {
+            background-color: hsla(0, 0%, 100%, 0.8);
+        }
+
+    }
+}
+
+.payhistory {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .label {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .payments {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+}
+
+.loadmorebtn {
+    cursor: pointer;
+    border-radius: 1rem;
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: 0.2s cubic-bezier(1, 0, 0, 1);
+    padding: 1.2rem 0.8rem;
+
+    color: hsl(0, 0%, 10%);
+    background-color: hsl(0, 0%, 100%);
+
+    &:hover {
+        background-color: hsl(0, 0%, 90%);
+    }
+}

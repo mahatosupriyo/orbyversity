@@ -7,7 +7,7 @@ interface TooltipProps {
   content: string;
   direction?: Direction;
   children: React.ReactNode;
-  className?: string; // Optional: to style the wrapper
+  className?: string; 
 }
 
 const Tooltip: React.FC<TooltipProps> = ({ 

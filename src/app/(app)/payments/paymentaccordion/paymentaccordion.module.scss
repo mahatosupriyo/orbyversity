@@ -1,0 +1,231 @@
+$font-primary: 'Rethink Sans', sans-serif;
+
+$font-secondary: 'JetBrains Mono', monospace;
+
+.paymenthistorywrapper {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: $font-primary;
+}
+
+.pagetitle {
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.paymentlist {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardcontainer {
+  background: #F7F6F2;
+  border-radius: 1rem;
+  overflow: hidden;
+  // border: 0.1rem solid hsl(0, 0%, 90%);
+}
+
+.cardheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.6rem 1.4rem;
+  cursor: pointer;
+  outline: none;
+  background: #F7F6F2;
+}
+
+.cardleft {
+  display: flex;
+  align-items: center;
+}
+
+.cardinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cardtitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.expandbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+}
+
+.cardbodywrapper {
+  overflow: hidden;
+}
+
+.expandedcontent {
+  padding: 1rem 1.4rem 1.25rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1rem;
+  // border-top: 0.1rem solid hsl(0, 0%, 90%);
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 1.4rem 1.4rem 1.8rem 1.4rem;
+    gap: 1.4rem;
+  }
+}
+
+.expandedrow {
+  display: flex;
+  align-items: center;
+}
+
+.expandedlabel {
+  // font-family: $font-secondary;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: hsl(0, 0%, 20%);
+}
+
+.payid {
+  font-size: 1.2rem;
+  font-family: $font-secondary;
+  margin-left: 0.5rem;
+  font-weight: 400;
+  padding: 0.3rem 0.4rem;
+  background: hsl(0, 0%, 90%);
+  border-radius: 0.4rem;
+}
+
+.reciptbtn {
+  border: none;
+  outline: none;
+  background-color: #2563eb;
+  color: #fff;
+
+  cursor: pointer;
+  border-radius: 1rem;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: 0.2s cubic-bezier(1, 0, 0, 1);
+  padding: 1.2rem 0.8rem;
+
+  overflow: hidden;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    justify-content: center;
+    padding: 1.4rem 1rem;
+  }
+
+  &:hover {
+    background-color: hsl(221, 83%, 46%);
+  }
+}
+
+.paystatus {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.4rem;
+
+  font-weight: 500;
+  font-size: 1.4rem;
+
+  .paid,
+  .processing,
+  .failed {
+    display: flex;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 10rem;
+
+  }
+}
+
+.paid {
+  background-color: #0C9E00;
+}
+
+.colorpaid {
+  background-color: #F7F6F2;
+}
+
+.processing {
+  background-color: #52009E;
+}
+
+.colorprocessing {
+  background-color: #EBD5FF;
+}
+
+.failed {
+  background-color: #9E0000;
+}
+
+.colorfailed {
+  background-color: #F4DCDC;
+}
+
+.primarybtn {
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #111;
+
+  cursor: pointer;
+  border-radius: 1rem;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: 0.2s cubic-bezier(1, 0, 0, 1);
+  padding: 1.2rem 0.8rem;
+
+  overflow: hidden;
+
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.7);
+  }
+}
+
+.secondarybtn {
+  border: none;
+  outline: none;
+  background-color: none;
+  color: #111;
+
+  cursor: pointer;
+  border-radius: 1rem;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: 0.2s cubic-bezier(1, 0, 0, 1);
+  padding: 1.2rem 0.8rem;
+
+  overflow: hidden;
+
+  &:hover {
+    background-color: hsla(0, 0%, 100%, 0.7);
+  }
+}
+
+.buttonwraper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+
+  gap: 0.4rem;
+}

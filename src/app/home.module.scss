@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-
     width: 100%;
 
     .container {
@@ -14,127 +13,76 @@
         max-width: 200rem;
         min-height: 100dvh;
 
-        // background-color: hsl(0, 0%, 96%);
-
-        .navbar {
-            position: relative;
-            // top: 0;
-            // left: 0;
-            // right: 0;
-
-            width: 100%;
-            padding: 1rem;
-
-            background-color: hsl(0, 0%, 100%);
-        }
+        padding: 16rem 5rem 0rem 5rem;
 
         .content {
-            padding: 1rem;
+            display: flex;
             width: 100%;
 
-            .topstatus {
-                display: flex;
-                flex-direction: row;
-                gap: 0.4rem;
-                width: 100%;
+            gap: 0.6rem;
 
-                .card {
-                    user-select: none;
-                    cursor: pointer;
-                    display: flex;
-                    flex-direction: column;
 
-                    background-color: hsl(0, 0%, 94%);
-                    border-radius: 1rem;
+        }
+    }
+}
 
-                    gap: 2rem;
-                    min-width: 30rem;
-                    width: 100%;
-                    padding: 1.6rem 1.4rem 1.2rem 1.4rem;
 
-                    transition: 0.2s ease-in-out;
+.addbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                    &:hover {
-                        background-color: hsl(0, 0%, 90%);
-                    }
+    position: fixed;
+    right: 0;
+    bottom: 0;
 
-                    .label {
-                        color: hsl(0, 0%, 10%);
-                        font-weight: 500;
-                        font-size: 0.8rem;
-                        text-transform: uppercase;
-                        font-family: "JetBrains Mono", monospace;
+    width: 10rem;
+    height: 10rem;
 
-                    }
+    aspect-ratio: 1/1;
+    border-radius: 10rem;
 
-                    .subwraper {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 0.2rem;
+    margin: 2rem 5rem;
 
-                        .metrics {
-                            display: flex;
-                            flex-direction: column;
-                            gap: 0.4rem;
+    cursor: pointer;
 
-                            .sublabel {
-                                color: hsl(0, 0%, 44%);
-                                font-family: 'Archivo';
-                                font-size: 0.8rem;
-                                font-weight: 460;
-                            }
+    border: none;
+    background: none;
+    background-color: #111;
 
-                            .status {
-                                display: inline-flex;
-                                flex-direction: row;
-                                align-items: center;
-                                font-size: 0.8rem;
-                                font-weight: 500;
+    transition: 0.2s cubic-bezier(1, 0, 0, 1);
 
-                                .statusdata {
-                                    line-height: 100%;
-                                    color: hsl(115, 100%, 31%);
-                                }
+    &:hover {
+        display: flex;
+        background-color: #444;
+    }
+}
 
-                                .statusdatadown {
-                                    line-height: 100%;
-                                    color: #9E0000;
-                                }
-                            }
-                        }
 
-                        .value {
-                            display: inline-flex;
-                            align-items: baseline;
 
-                            gap: 0.26rem;
 
-                            .activetotal {
-                                font-size: 2.56rem;
-                                font-weight: 500;
-                                letter-spacing: -0.016rem;
-                                font-family: "JetBrains Mono", monospace;
-                            }
 
-                            .subvalue {
-                                color: #6F6F6F;
-                                font-weight: 500;
-                                font-family: 'Archivo';
-                                font-size: 0.8rem;
-                            }
 
-                            .totalvalue {
-                                font-family: "JetBrains Mono", monospace;
-                                color: #6F6F6F;
-                                font-weight: 500;
-                                font-size: 0.8rem;
-                                letter-spacing: -0.016rem;
-                            }
-                        }
-                    }
+.toplayercontent {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 
-                }
-            }
+    display: none;
+    .fyselector {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding-bottom: 2rem;
+
+        .fylabel {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: hsl(0, 0%, 50%);
+
+            font-family: JetBrains Mono, monospace;
         }
     }
 }
