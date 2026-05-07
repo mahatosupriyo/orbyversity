@@ -17,11 +17,9 @@ export default function UnauthorizedPage() {
                                     *This portal is available only for registered members
                                 </p>
                             </Tooltip>
-                            <Tooltip content='Apply for admission' direction='bottom'>
-                                <Link href="/" className={styles.cta}>
-                                    Apply for Admission
-                                </Link>
-                            </Tooltip>
+                            <Link href="/" className={styles.cta}>
+                                Apply for Admission
+                            </Link>
                         </div>
                         <span className={styles.moredata}>~ Access is limited to enrolled students and authorized staff.</span>
                     </div>
